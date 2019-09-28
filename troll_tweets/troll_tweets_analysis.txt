@@ -13,14 +13,14 @@ select count(*) from troll_tweets where language = 'English';
 select count(*) from troll_tweets_partitioned where language = 'English';
 
 -- number of tweets in French
-select count(*) from troll_tweets where language = 'French';
+select count(*) from troll_tweets_partitioned where language = 'French';
 
 -- average number of followers for each language
-select language, avg(followers) from troll_tweets group by language;
+select language, avg(followers) from troll_tweets_partitioned group by language;
 
 -- top 10 authors with the most tweets
-select author, count(*) from troll_tweets group by author order by count(*) desc limit 10;
+select author, count(*) from troll_tweets_partitioned group by author order by count(*) desc limit 10;
 
 -- top 10 authors with the most followers (max followers for any tweet by that author)
-select author, max(followers) from troll_tweets group by author order by max(followers) desc limit 10;
+select author, max(followers) from troll_tweets_partitioned group by author order by max(followers) desc limit 10;
 
